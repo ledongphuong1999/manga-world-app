@@ -21,7 +21,6 @@ class Home extends Component {
       const {navigation} =this.props;
       const {StoryArray} = this.state;
       return (
-          <View>
             <ScrollView>
               <SearchBar />
               <Image style={styles.WallpagerStyle} source ={{ uri : 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/dc9a94d0-a984-4f3f-a134-66682b76ffc2/d6dx289-ebe7edf2-f46d-4c74-802c-a9b5b775c87f.png'} }/>
@@ -42,7 +41,6 @@ class Home extends Component {
                 </View>
                 <FlatList
                 numColumns={4} 
-                style={styles}
                 data={StoryArray}
                 renderItem={({item})=><StoryItem story={item} keyExtractor={item=>`${item.id}`} 
                 onPressXayDung={()=>navigation.navigate('Thông Tin Truyện')} />}
@@ -54,13 +52,11 @@ class Home extends Component {
               </View>
               <FlatList
                 numColumns={4} 
-                style={styles}
                 data={StoryArray}
                 renderItem={({item})=><StoryItem story={item} keyExtractor={item=>`${item.id}`}
                 onPressXayDung={()=>navigation.navigate('Thông Tin Truyện')} />}  
                 />
             </ScrollView>
-          </View>
         );
     }
 }

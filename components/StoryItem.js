@@ -4,7 +4,7 @@ class StoryItem extends Component {
     render() {
         const {story, onPressXayDung} = this.props;
         return (
-            <TouchableOpacity onPress={onPressXayDung}>
+          <TouchableOpacity onPress={onPressXayDung}>
             <View style={styles.container}>
               <Image style={styles.ImageStyle} source={{uri: 'https://sachvui.com/cover/2019/truyen-doraemon-plus.jpg'}} />
               <View>

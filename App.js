@@ -9,6 +9,7 @@ import ThongTinTruyenScreen from './screens/ThongTinTruyenScreen';
 import TheoDoiScreen from './screens/TheoDoiScreen';
 import TheLoaiScreen from './screens/TheLoaiScreen';
 import CaNhanScreen from './screens/CaNhanScreen';
+import ChapterScreen from './screens/ChapterScreen';
 
 const StackHome = createStackNavigator();
 function HomeTab(){
@@ -16,6 +17,7 @@ function HomeTab(){
     <StackHome.Navigator>
       <StackHome.Screen name="Trang Chủ" component={Home} />
       <StackHome.Screen name="Thông Tin Truyện" component={ThongTinTruyenScreen} />
+      <StackHome.Screen name="Chapter" component={ChapterScreen} />
     </StackHome.Navigator>
   );
 }
