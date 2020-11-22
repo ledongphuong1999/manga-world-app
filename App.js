@@ -10,41 +10,46 @@ import TheoDoiScreen from './screens/TheoDoiScreen';
 import TheLoaiScreen from './screens/TheLoaiScreen';
 import CaNhanScreen from './screens/CaNhanScreen';
 import ChapterScreen from './screens/ChapterScreen';
+import RankingScreen from './screens/RankingScreen';
+import DailyyyScreen from './screens/DailyyyScreen';
 
-const StackHome = createStackNavigator();
-function HomeTab(){
-  return(
-    <StackHome.Navigator>
-      <StackHome.Screen name="Trang Chủ" component={Home} />
-      <StackHome.Screen name="Thông Tin Truyện" component={ThongTinTruyenScreen} />
-      <StackHome.Screen name="Chapter" component={ChapterScreen} />
-    </StackHome.Navigator>
+const Stack = createStackNavigator();
+function HomeTab() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Trang Chủ" component={Home} />
+      <Stack.Screen name="Ranking" component={RankingScreen} />
+      <Stack.Screen name="Daily" component={DailyyyScreen} />
+      <Stack.Screen name="Thông Tin Truyện" component={ThongTinTruyenScreen} />
+      <Stack.Screen name="Chapter" component={ChapterScreen} />
+    </Stack.Navigator>
   );
 }
 
-const StackTheoDoi = createStackNavigator();
-function TheoDoiTab(){
-  return(
-    <StackTheoDoi.Navigator>
-      <StackTheoDoi.Screen name="Theo Dõi" component={TheoDoiScreen} />
-    </StackTheoDoi.Navigator>
+function TheoDoiTab() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Theo Dõi" component={TheoDoiScreen} />
+      <Stack.Screen name="Thông Tin Truyện" component={ThongTinTruyenScreen} />
+      <Stack.Screen name="Chapter" component={ChapterScreen} />
+    </Stack.Navigator>
   );
 }
-const StackTheLoai = createStackNavigator();
-function TheLoaiTab(){
-  return(
-    <StackTheLoai.Navigator>
-      <StackTheLoai.Screen name="Thể Loại" component={TheLoaiScreen} />
-    </StackTheLoai.Navigator>
+function TheLoaiTab() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Thể Loại" component={TheLoaiScreen} />
+      <Stack.Screen name="Thông Tin Truyện" component={ThongTinTruyenScreen} />
+      <Stack.Screen name="Chapter" component={ChapterScreen} />
+    </Stack.Navigator>
   );
 }
 
-const StackCaNhan = createStackNavigator();
-function CaNhanTab(){
-  return(
-    <StackCaNhan.Navigator>
-      <StackCaNhan.Screen name="Cá Nhân" component={CaNhanScreen} />
-    </StackCaNhan.Navigator>
+function CaNhanTab() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Cá Nhân" component={CaNhanScreen} />
+    </Stack.Navigator>
   );
 }
 

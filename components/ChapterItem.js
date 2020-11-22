@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
-class StoryItem extends Component {
+import { FlatList, StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
+
+class ChapterItem extends Component {
     render() {
-        const {story, onPressXayDung} = this.props;
+        const {chapter, onPressXayDung} = this.props;
         return (
           <TouchableOpacity onPress={onPressXayDung}>
             <View style={styles.container}>
-              <Image style={styles.ImageStyle} source={{uri: 'https://sachvui.com/cover/2019/truyen-doraemon-plus.jpg'}} />
               <View>
-                 <Text style={styles.TextStyle}>{story.name}</Text>
+                 <Text style={styles.TextStyle}>{chapter.name}</Text>
               </View>
             </View>
           </TouchableOpacity>
@@ -37,4 +37,5 @@ const styles = StyleSheet.create({
         
     }
   });
-export default StoryItem;
+
+export default ChapterItem;

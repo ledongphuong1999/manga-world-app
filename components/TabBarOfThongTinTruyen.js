@@ -13,15 +13,35 @@ import {
 const { width } = Dimensions.get("window");
 
 class TabBarOfThongTinTruyen extends Component {
-    state = {
-        active: 0,
-        xTabOne: 0,
-        xTabTwo: 0,
-        translateX: new Animated.Value(0),
-        translateXTabOne: new Animated.Value(0),
-        translateXTabTwo: new Animated.Value(width),
-        translateY: -1000
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            stories: [
+                { id: 1, name: 'Chap 1' },
+                { id: 2, name: 'Chap 2' },
+                { id: 3, name: 'Chap 3' },
+                { id: 4, name: 'Chap 4' },
+                { id: 5, name: 'Chap 5' },
+            ],
+            active: 0,
+            xTabOne: 0,
+            xTabTwo: 0,
+            translateX: new Animated.Value(0),
+            translateXTabOne: new Animated.Value(0),
+            translateXTabTwo: new Animated.Value(width),
+            translateY: -1000
+        }
+    }
+
+    // state = {
+    //     active: 0,
+    //     xTabOne: 0,
+    //     xTabTwo: 0,
+    //     translateX: new Animated.Value(0),
+    //     translateXTabOne: new Animated.Value(0),
+    //     translateXTabTwo: new Animated.Value(width),
+    //     translateY: -1000
+    // };
 
     handleSlide = type => {
         let {
@@ -35,19 +55,19 @@ class TabBarOfThongTinTruyen extends Component {
         Animated.spring(translateX, {
             toValue: type,
             duration: 100,
-            useNativeDriver :true,
+            useNativeDriver: true,
         }).start();
         if (active === 0) {
             Animated.parallel([
                 Animated.spring(translateXTabOne, {
                     toValue: 0,
                     duration: 100,
-                    useNativeDriver :true,
+                    useNativeDriver: true,
                 }).start(),
                 Animated.spring(translateXTabTwo, {
                     toValue: width,
                     duration: 100,
-                    useNativeDriver :true,
+                    useNativeDriver: true,
                 }).start()
             ]);
         } else {
@@ -55,13 +75,13 @@ class TabBarOfThongTinTruyen extends Component {
                 Animated.spring(translateXTabOne, {
                     toValue: -width,
                     duration: 100,
-                    useNativeDriver :true,
+                    useNativeDriver: true,
 
                 }).start(),
                 Animated.spring(translateXTabTwo, {
                     toValue: 0,
                     duration: 100,
-                    useNativeDriver :true,
+                    useNativeDriver: true,
                 }).start()
             ]);
         }
@@ -76,6 +96,10 @@ class TabBarOfThongTinTruyen extends Component {
             translateXTabTwo,
             translateY
         } = this.state;
+        
+        const chapters = this.state.stories.map((chapter, index) => {
+            return (<TouchableOpacity><Text style={{ paddingBottom: 20, }} key={index}>{chapter.name}</Text></TouchableOpacity>);
+        })
         return (
             <View style={{ flex: 1 }}>
                 <View
@@ -178,7 +202,7 @@ class TabBarOfThongTinTruyen extends Component {
                         <Animated.View
                             style={{
                                 transform: [
-                                    {translateX: translateXTabOne}
+                                    { translateX: translateXTabOne }
                                 ]
                             }}
                             onLayout={event =>
@@ -187,18 +211,19 @@ class TabBarOfThongTinTruyen extends Component {
                                 })
                             }
                         >
-                            <Text style={{paddingBottom : 20,}}>Chương 1</Text>
-                            <Text style={{paddingBottom : 20,}}>Chương 2</Text>
-                            <Text style={{paddingBottom : 20,}}>Chương 3</Text>
-                            <Text style={{paddingBottom : 20,}}>Chương 4</Text>
-                            <Text style={{paddingBottom : 20,}}>Chương 5</Text>
+                            {/* <Text style={{ paddingBottom: 20, }}>Chương 1</Text>
+                            <Text style={{ paddingBottom: 20, }}>Chương 2</Text>
+                            <Text style={{ paddingBottom: 20, }}>Chương 3</Text>
+                            <Text style={{ paddingBottom: 20, }}>Chương 4</Text>
+                            <Text style={{ paddingBottom: 20, }}>Chương 5</Text> */}
+                            {chapters}
                         </Animated.View>
 
                         <Animated.View
                             style={{
                                 transform: [
-                                    {translateX: translateXTabTwo},
-                                    {translateY: -translateY}
+                                    { translateX: translateXTabTwo },
+                                    { translateY: -translateY }
                                 ]
                             }}
                         >

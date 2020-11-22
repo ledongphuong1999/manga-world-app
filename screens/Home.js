@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FlatList, StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
-import StoryItem from '../components/StoryItem';
+import StoryItemHome from '../components/StoryItemHome';
 import dailyImage from '../assets/daily.png'
 import rankImage from '../assets/rank.png'
 import SearchBar from '../components/SearchBar';
@@ -13,7 +13,11 @@ class Home extends Component {
             {id : 2, name : 'Doremon 2'},
             {id : 3, name : 'Doremon 3'},
             {id : 4, name : 'Doremon 4'},
-
+            {id : 5, name : 'Doremon 5'},
+            {id : 6, name : 'Doremon 6'},
+            {id : 7, name : 'Doremon 7'},
+            {id : 8, name : 'Doremon 8'},
+            
           ]
         }
       }
@@ -25,11 +29,11 @@ class Home extends Component {
               <SearchBar />
               <Image style={styles.WallpagerStyle} source ={{ uri : 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/dc9a94d0-a984-4f3f-a134-66682b76ffc2/d6dx289-ebe7edf2-f46d-4c74-802c-a9b5b775c87f.png'} }/>
               <View style={styles.TextStyle}>
-                <TouchableOpacity style={styles.StyleRankDaily}>
+                <TouchableOpacity style={styles.StyleRankDaily} onPress={()=>navigation.navigate("Ranking")}>
                   <Image style={styles.IconStyle} source={rankImage} />
                   <Text>Ranking</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.StyleRankDaily}>
+                <TouchableOpacity style={styles.StyleRankDaily} onPress={()=>navigation.navigate("Daily")}>
                   <Image style={styles.IconStyle} source={dailyImage} />
                   <Text>Daily</Text>
                 </TouchableOpacity>
@@ -42,7 +46,7 @@ class Home extends Component {
                 <FlatList
                 numColumns={4} 
                 data={StoryArray}
-                renderItem={({item})=><StoryItem story={item} keyExtractor={item=>`${item.id}`} 
+                renderItem={({item})=><StoryItemHome story={item} keyExtractor={item=>`${item.id}`} 
                 onPressXayDung={()=>navigation.navigate('Thông Tin Truyện')} />}
                 />
               </View>
@@ -53,7 +57,7 @@ class Home extends Component {
               <FlatList
                 numColumns={4} 
                 data={StoryArray}
-                renderItem={({item})=><StoryItem story={item} keyExtractor={item=>`${item.id}`}
+                renderItem={({item})=><StoryItemHome story={item} keyExtractor={item=>`${item.id}`}
                 onPressXayDung={()=>navigation.navigate('Thông Tin Truyện')} />}  
                 />
             </ScrollView>
